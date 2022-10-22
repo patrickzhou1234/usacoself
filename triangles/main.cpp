@@ -15,10 +15,10 @@ struct coord {
 };
 
 int main() {
-    freopen("triangles.in", "r", stdin);
+    freopen("2.in", "r", stdin);
     freopen("triangles.out", "w", stdout);
-    int n,i,j,m;
-    double a,b,c,s, area, mxarea=-1;
+    int n,i,j,m,mxi, mxj, mxm;
+    double a,b,c,s, area, mxarea;
     cin >> n;
     coord fencepost[n];
     for (i=0;i<n;i++) {
@@ -28,17 +28,23 @@ int main() {
         for (j=0;j<n;j++) {
             for (m=0;m<n;m++) {
                 if (i!=j && j!=m) {
-                    a = sqrt(pow(abs(fencepost[i].x-fencepost[j].x),2)+pow(abs(fencepost[i].y-fencepost[j].y),2));
-                    b = sqrt(pow(abs(fencepost[j].x-fencepost[m].x),2)+pow(abs(fencepost[j].y-fencepost[m].y),2));
-                    c = sqrt(pow(abs(fencepost[i].x-fencepost[m].x),2)+pow(abs(fencepost[i].y-fencepost[m].y),2));
-                    s=(a+b+c)/2;
-                    area = sqrt(s*(s-a)*(s-b)*(s-c));
-                    mxarea = max(area, mxarea);
+                    if ((fencepost[i].x==fencepost[j].x || fencepost[i].x==fencepost[m].x || fencepost[j].x==fencepost[m].x) && (fencepost[i].y==fencepost[j].y || fencepost[i].y==fencepost[m].y || fencepost[j].y==fencepost[m].y)) {
+                        a = sqrt(pow(abs(fencepost[i].x-fencepost[j].x),2)+pow(abs(fencepost[i].y-fencepost[j].y),2));
+                        b = sqrt(pow(abs(fencepost[j].x-fencepost[m].x),2)+pow(abs(fencepost[j].y-fencepost[m].y),2));
+                        c = sqrt(pow(abs(fencepost[i].x-fencepost[m].x),2)+pow(abs(fencepost[i].y-fencepost[m].y),2));
+                        s=(a+b+c)/2;
+                        area = sqrt(s*(s-a)*(s-b)*(s-c));
+                        if (area>mxarea) {
+                            mxarea = area;
+                            mxi = i;
+                            mxj = j;
+                            mxm = m;
+                        }
+                    }
                 }
             }
         }
     }
     cout << (int)(mxarea*2);
-    system("pause");
     return 0;
 }

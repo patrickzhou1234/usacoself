@@ -6,10 +6,6 @@ using namespace std;
 
 #define MAX_INT 2147483647
 
-struct bestcoords {
-
-};
-
 struct coord {
     int x, y;
 };

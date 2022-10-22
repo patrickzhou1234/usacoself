@@ -15,7 +15,7 @@ struct coord {
 };
 
 int main() {
-    freopen("2.in", "r", stdin);
+    freopen("triangles.in", "r", stdin);
     freopen("triangles.out", "w", stdout);
     int n,i,j,m,mxi, mxj, mxm;
     double a,b,c,s, area, mxarea;

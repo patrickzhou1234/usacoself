@@ -17,7 +17,7 @@ struct coord {
 int main() {
     freopen("triangles.in", "r", stdin);
     freopen("triangles.out", "w", stdout);
-    int n,i,j,m,mxi, mxj, mxm;
+    int n,i,j,m;
     double a,b,c,s, area, mxarea;
     cin >> n;
     coord fencepost[n];
@@ -34,17 +34,12 @@ int main() {
                         c = sqrt(pow(abs(fencepost[i].x-fencepost[m].x),2)+pow(abs(fencepost[i].y-fencepost[m].y),2));
                         s=(a+b+c)/2;
                         area = sqrt(s*(s-a)*(s-b)*(s-c));
-                        if (area>mxarea) {
-                            mxarea = area;
-                            mxi = i;
-                            mxj = j;
-                            mxm = m;
-                        }
+                        mxarea = max(area, mxarea);
                     }
                 }
             }
         }
     }
-    cout << (int)(mxarea*2);
+    cout << (int) round(mxarea*2);
     return 0;
 }

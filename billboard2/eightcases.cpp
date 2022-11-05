@@ -15,7 +15,7 @@ struct billb {
 int main() {
     freopen("billboard.in", "r", stdin);
     freopen("billboard.out", "w", stdout);
-    double i, j, mnX=MAX_DOUBLE, mxX=0-MAX_DOUBLE, mnY=MAX_DOUBLE, mxY=0-MAX_DOUBLE;
+    double i, j, mnX=MAX_DOUBLE, mxX=0-MAX_DOUBLE, mnY=MAX_DOUBLE, mxY=-MAX_DOUBLE;
     billb a, b;
     cin >> a.x1 >> a.y1 >> a.x2 >> a.y2;
     cin >> b.x1 >> b.y1 >> b.x2 >> b.y2;
@@ -28,18 +28,6 @@ int main() {
                 mxY = max(mxY, j);
             }
         }
-    }
-    if (mnX == MAX_DOUBLE) {
-        mnX = mxX;
-    }
-    if (mxX == 0-MAX_DOUBLE) {
-        mxX = mnX;
-    }
-    if (mnY == MAX_DOUBLE) {
-        mnY = mxY;
-    }
-    if (mxY == 0-MAX_DOUBLE) {
-        mxY = mnY;
     }
     mnX = floor(mnX);
     mxX = ceil(mxX);

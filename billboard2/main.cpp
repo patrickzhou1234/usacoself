@@ -42,6 +42,7 @@ int main() {
     if (mxY == 0-MAX_DOUBLE) {
         mxY = mnY;
     }
+    // for rounding because of 0.5 counting
     mnX = floor(mnX);
     mxX = ceil(mxX);
     mnY = floor(mnY);

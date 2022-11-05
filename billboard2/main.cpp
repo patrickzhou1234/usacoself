@@ -17,6 +17,7 @@ int main() {
     freopen("billboard.out", "w", stdout);
     double i, j, mnX=MAX_DOUBLE, mxX=0-MAX_DOUBLE, mnY=MAX_DOUBLE, mxY=0-MAX_DOUBLE;
     billb a, b;
+    int ans;
     cin >> a.x1 >> a.y1 >> a.x2 >> a.y2;
     cin >> b.x1 >> b.y1 >> b.x2 >> b.y2;
     for (i=a.x1+0.5;i<a.x2;i++) {
@@ -45,7 +46,8 @@ int main() {
     mxX = ceil(mxX);
     mnY = floor(mnY);
     mxY = ceil(mxY);
-    cout << (mxX-mnX)*(mxY-mnY);
+    ans = (mxX-mnX)*(mxY-mnY);
+    cout << ans;
     system("pause");
     return 0;
 }

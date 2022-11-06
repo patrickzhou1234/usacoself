@@ -28,6 +28,10 @@ int main() {
         af=false;
         bf=false;
     }
+    if (mncst==MAX_INT) {
+        cout << -1;
+        return 0;
+    }
     cout << mncst;
     return 0;
 }

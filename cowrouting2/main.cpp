@@ -61,7 +61,7 @@ int main() {
         cstref=MAX_INT;
         for (j=0;j<mat[i].ln;j++) {
             for (m=0;m<searchls.size();m++) {
-                if (mat[i].rt[j]==searchls[m].lc && searchls[m].cst<cstref) {
+                if (mat[i].rt[j]==searchls[m].lc && searchls[m].cst<cstref && !bf) {
                     af=true;
                     cstref=searchls[m].cst;
                 }

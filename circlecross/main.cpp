@@ -29,7 +29,7 @@ int main() {
                     ls.push_back(inp[j]);
                 }
             } else {
-                i=j;
+                inp.erase(inp.begin()+j);
                 break;
             }
         }

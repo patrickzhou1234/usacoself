@@ -33,10 +33,8 @@ int main() {
                 break;
             }
         }
-        if (ls.size()>0) {
-            sz++;
-            ls.clear();
-        }
+        sz+=ls.size();
+        ls.clear();
     }
     cout << sz;
     return 0;

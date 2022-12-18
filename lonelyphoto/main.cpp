@@ -10,9 +10,9 @@ int main() {
     cin >> i;
     string inp, tmp;
     cin >> inp;
-    for (i=2;i<inp.length();i++) {
-        for (j=0;j<inp.length()-i;j++) {
-            tmp=inp.substr(j, j+i);
+    for (i=3;i<=inp.length();i++) {
+        for (j=0;j<=inp.length()-i;j++) {
+            tmp=inp.substr(j, i);
             gct=0;
             hct=0;
             for (m=0;m<tmp.length();m++) {

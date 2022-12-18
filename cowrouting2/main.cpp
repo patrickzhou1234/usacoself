@@ -1,4 +1,4 @@
-// http://www.usaco.org/index.php?page=viewproblem2&cpid=508
+// http://www.usaco.org/index.php?page=viewproblem2&cpid=506
 #include <iostream>
 #include <vector>
 

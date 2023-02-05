@@ -50,11 +50,31 @@ int main() {
         cin >> t[i];
     }
     sort(t, t+n);
+    // Exhaustive search
+    /*
     i=1;
     while(!isValid(i)) {
         i++;
     }
-    cout << i;
+    
+    */
+  
+    // binary search
+    int left = 0;
+    int right = t[n-1];
+    int ans = -1;
+    while (left <= right) {
+      int mid = (left+right)/2; // integer division
+      if (isValid(mid)){
+          right = mid-1;
+          ans = mid;
+      }
+      else{
+        left = mid+1;
+      }
+      
+    }
+    cout << ans;
     system("pause");
     return 0;
 }

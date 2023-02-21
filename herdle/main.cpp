@@ -9,8 +9,9 @@ using namespace std;
 int main()
 {
     char a[3][3], b[3][3];
-    int i, j, m, cor = 0, incor = 0;
+    int i, j, m, n, cor = 0, incor = 0;
     bool checked[3][3] = {false};
+    bool found;
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 3; j++)
@@ -29,19 +30,28 @@ int main()
     {
         for (j = 0; j < 3; j++)
         {
-            if (a[j][i] == b[j][i] && checked[j][i] == false)
+            if (a[i][j] == b[i][j] && checked[i][j] == false)
             {
                 cor++;
-                checked[j][i] = true;
+                checked[i][j] = true;
             }
             else
             {
+                found = false;
                 for (m = 0; m < 3; m++)
                 {
-                    if (a[j][i] == b[m][j] && checked[m][j] == false)
+                    for (n = 0; n < 3; n++)
                     {
-                        incor++;
-                        checked[m][j] = true;
+                        if (a[i][j] == b[m][n] && checked[m][n] == false && a[m][n] != b[m][n])
+                        {
+                            incor++;
+                            checked[m][n] = true;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found)
+                    {
                         break;
                     }
                 }

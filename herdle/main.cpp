@@ -11,7 +11,6 @@ int main()
     char a[3][3], b[3][3];
     int i, j, m, n, cor = 0, incor = 0;
     bool checked[3][3] = {false};
-    bool found;
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 3; j++)
@@ -37,7 +36,6 @@ int main()
             }
             else
             {
-                found = false;
                 for (m = 0; m < 3; m++)
                 {
                     for (n = 0; n < 3; n++)
@@ -46,13 +44,8 @@ int main()
                         {
                             incor++;
                             checked[m][n] = true;
-                            found = true;
                             break;
                         }
-                    }
-                    if (found)
-                    {
-                        break;
                     }
                 }
             }

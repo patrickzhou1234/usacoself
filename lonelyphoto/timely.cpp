@@ -12,14 +12,16 @@ int main()
     cin >> i;
     string inp, tmp;
     cin >> inp;
-    for (i = 3; i <= inp.length(); i++)
+    for (i = 0; i < (int)inp.size(); i++)
     {
-        for (j = 0; j <= inp.length() - i; j++)
+        gct = 0, hct = 0;
+        for (j = i; j < (int)inp.size(); j++)
         {
-            tmp = inp.substr(j, i);
-            gct = count(tmp.begin(), tmp.end(), 'G');
-            hct = count(tmp.begin(), tmp.end(), 'H');
-            if (gct == 1 || hct == 1)
+            if (inp[j] == 'G')
+                gct++;
+            if (inp[j] == 'H')
+                hct++;
+            if (gct + hct >= 3 && (gct == 1 || hct == 1))
             {
                 ct++;
             }

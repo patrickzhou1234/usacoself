@@ -36,7 +36,7 @@ int main()
     cin >> n;
     vector<int> tmpset, c;
     vector<vector<int>> a, b;
-    bool found;
+    bool fd;
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < 4; j++)
@@ -56,28 +56,28 @@ int main()
     }
     for (cs = 0; cs < n; cs++)
     {
-        found = false;
-        for (i = 0; i <= 10; i++)
+        fd = false;
+        for (i = 1; i <= 10; i++)
         {
-            for (j = 0; j <= 10; j++)
+            for (j = 1; j <= 10; j++)
             {
-                for (m = 0; m <= 10; m++)
+                for (m = 1; m <= 10; m++)
                 {
-                    for (k = 0; k <= 10; k++)
+                    for (k = 1; k <= 10; k++)
                     {
                         c.insert(c.end(), {i, j, m, k});
                         if (calculateProbability(a[cs], b[cs]))
                         {
                             if (calculateProbability(b[cs], c) && calculateProbability(c, a[cs]))
                             {
-                                found = true;
+                                fd = true;
                             }
                         }
                         else
                         {
                             if (calculateProbability(a[cs], c) && calculateProbability(c, b[cs]))
                             {
-                                found = true;
+                                fd = true;
                             }
                         }
                         c.clear();
@@ -85,7 +85,7 @@ int main()
                 }
             }
         }
-        if (found)
+        if (fd)
         {
             cout << "yes" << endl;
         }

@@ -36,7 +36,7 @@ int main()
     {
         cowG[i] = -1;
     }
-    for (i = 1; i <= 100; i++)
+    for (i = 1; i <= 1000; i++)
     {
         for (j = 0; j < cows.size(); j++)
         {

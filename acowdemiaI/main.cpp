@@ -43,7 +43,7 @@ int main()
     for (i = n - 1; i >= 0; i--)
     {
         sum = 0;
-        for (j = 0; j < n; j++)
+        for (j = n - arr[i]; j < n; j++)
         {
             if (arr[i] > arr[j])
             {

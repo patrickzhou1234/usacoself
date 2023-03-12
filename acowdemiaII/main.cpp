@@ -33,21 +33,15 @@ int main()
     }
     for (i = 0; i < k; i++)
     {
-        for (j = 0; j < n - 1; j++)
+        for (j = 0; j < n; j++)
         {
-            if (nextlines[i][j].compare(nextlines[i][j + 1]) > 0)
+            for (m = j + 1; m < n; m++)
             {
-                tmp.a = nextlines[i][j + 1];
-                tmp.b = nextlines[i][j];
-                greaterpairs.push_back(tmp);
-                if (j != 0)
+                if (nextlines[i][j].compare(nextlines[i][m]) > 0)
                 {
-                    for (m = j - 1; m >= 0; m--)
-                    {
-                        tmp.a = nextlines[i][j + 1];
-                        tmp.b = nextlines[i][m];
-                        greaterpairs.push_back(tmp);
-                    }
+                    tmp.a = nextlines[i][m];
+                    tmp.b = nextlines[i][j];
+                    greaterpairs.push_back(tmp);
                 }
             }
         }

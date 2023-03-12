@@ -10,28 +10,20 @@ using namespace std;
 
 int checkMax(vector<int> arr)
 {
-    int i, j, ct, h;
+    int i;
     for (i = 0; i < arr.size(); i++)
     {
-        ct = 0;
-        for (j = 0; j < arr.size(); j++)
+        if (arr[i] < i + 1)
         {
-            if (arr[j] >= i)
-            {
-                ct++;
-            }
-        }
-        if (ct >= i)
-        {
-            h = i;
+            break;
         }
     }
-    return h;
+    return i;
 }
 
 int main()
 {
-    int n, l, i, j, tmp, sum;
+    int n, l, i, tmp;
     cin >> n >> l;
     vector<int> arr;
     for (i = 0; i < n; i++)
@@ -39,23 +31,17 @@ int main()
         cin >> tmp;
         arr.push_back(tmp);
     }
-    sort(arr.begin(), arr.end());
-    for (i = n - 1; i >= 0; i--)
+    sort(arr.begin(), arr.end(), greater<int>());
+    tmp = checkMax(arr);
+    for (i = tmp; i > tmp - l; i--)
     {
-        sum = 0;
-        for (j = n - arr[i]; j < n; j++)
+        if (i >= 0)
         {
-            if (arr[i] > arr[j])
-            {
-                sum += arr[i] - arr[j];
-            }
-        }
-        if (sum <= l)
-        {
-            cout << max(arr[i], checkMax(arr));
-            break;
+            arr[i]++;
         }
     }
+    sort(arr.begin(), arr.end(), greater<int>());
+    cout << checkMax(arr) << endl;
     system("pause");
     return 0;
 }

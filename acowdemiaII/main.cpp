@@ -13,7 +13,7 @@ struct greaterpair
 
 int main()
 {
-    int k, n, i, j, m;
+    int k, n, i, j, m, f;
     cin >> k >> n;
     string firstline[n];
     char ans[n][n];
@@ -42,6 +42,19 @@ int main()
                     tmp.a = nextlines[i][m];
                     tmp.b = nextlines[i][j];
                     greaterpairs.push_back(tmp);
+                }
+                else if (m - j > 1)
+                {
+                    for (f = 0; f < greaterpairs.size(); f++)
+                    {
+                        if ((greaterpairs[f].a.compare(nextlines[i][m - 1]) == 0 && greaterpairs[f].b.compare(nextlines[i][m]) == 0) || (greaterpairs[f].b.compare(nextlines[i][m - 1]) == 0 && greaterpairs[f].a.compare(nextlines[i][m]) == 0))
+                        {
+                            tmp.a = nextlines[i][m];
+                            tmp.b = nextlines[i][j];
+                            greaterpairs.push_back(tmp);
+                            break;
+                        }
+                    }
                 }
             }
         }

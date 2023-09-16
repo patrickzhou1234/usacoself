@@ -53,37 +53,10 @@ int main()
                 }
                 if (cc == 3)
                 {
-                    comfcws.push_back({x + adj[j].x, y + adj[j].y});
                     finalcc++;
                 }
-            }
-        }
-        for (j = 0; j < comfcws.size(); j++)
-        {
-            cc = 0;
-            x = comfcws[j].x;
-            y = comfcws[j].y;
-            if (arr[x + 2][y + 2])
-            {
-                if (arr[x + 2][y + 3])
+                if (cc == 4)
                 {
-                    cc++;
-                }
-                if (arr[x + 2][y + 1])
-                {
-                    cc++;
-                }
-                if (arr[x + 1][y + 2])
-                {
-                    cc++;
-                }
-                if (arr[x + 3][y + 2])
-                {
-                    cc++;
-                }
-                if (cc != 3)
-                {
-                    comfcws.erase(comfcws.begin() + j);
                     finalcc--;
                 }
             }

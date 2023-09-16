@@ -28,36 +28,6 @@ int main()
     }
     for (i = 0; i < n; i++)
     {
-        cin >> x >> y;
-        arr[x + 2][y + 2] = true;
-        for (j = 0; j < 5; j++)
-        {
-            cc = 0;
-            if (arr[x + 2 + adj[j].x][y + 2 + adj[j].y])
-            {
-                if (arr[x + 2 + adj[j].x][y + 3 + adj[j].y])
-                {
-                    cc++;
-                }
-                if (arr[x + 2 + adj[j].x][y + 1 + adj[j].y])
-                {
-                    cc++;
-                }
-                if (arr[x + 1 + adj[j].x][y + 2 + adj[j].y])
-                {
-                    cc++;
-                }
-                if (arr[x + 3 + adj[j].x][y + 2 + adj[j].y])
-                {
-                    cc++;
-                }
-                if (cc == 3)
-                {
-                    comfcws.push_back({x + adj[j].x, y + adj[j].y});
-                    finalcc++;
-                }
-            }
-        }
         for (j = 0; j < comfcws.size(); j++)
         {
             cc = 0;
@@ -88,17 +58,37 @@ int main()
                 }
             }
         }
-        cout << finalcc << endl;
-        /*
-        for (int z = 0; z < 10; z++)
+        cin >> x >> y;
+        arr[x + 2][y + 2] = true;
+        for (j = 0; j < 5; j++)
         {
-            for (j = 0; j < 10; j++)
+            cc = 0;
+            if (arr[x + 2 + adj[j].x][y + 2 + adj[j].y])
             {
-                cout << arr[z][j] << " ";
+                if (arr[x + 2 + adj[j].x][y + 3 + adj[j].y])
+                {
+                    cc++;
+                }
+                if (arr[x + 2 + adj[j].x][y + 1 + adj[j].y])
+                {
+                    cc++;
+                }
+                if (arr[x + 1 + adj[j].x][y + 2 + adj[j].y])
+                {
+                    cc++;
+                }
+                if (arr[x + 3 + adj[j].x][y + 2 + adj[j].y])
+                {
+                    cc++;
+                }
+                if (cc == 3)
+                {
+                    comfcws.push_back({x + adj[j].x, y + adj[j].y});
+                    finalcc++;
+                }
             }
-            cout << endl;
         }
-        */
+        cout << finalcc << endl;
     }
     return 0;
 }
